@@ -1,0 +1,12 @@
+﻿@model Category
+@{
+    <form method="post" class="bordered p-3">
+        <h2 class="text-center text-black mb-3">Create Category</h2>
+        <div class="d-flex" style="gap:2rem">
+        <input placeholder="Category Name" class="p-3 w-50" asp-for="Name">
+        <input placeholder="Display Order" class="p-3 w-50" asp-for="DisplayOrder">
+        </div>
+        <button type="submit" class="btn btn-primary mt-2 ">Create</button>
+        <a class="text-back ml-3 fw-bold" asp-controller="Category" asp-action="Index"> back to list</a>
+    </form>
+}

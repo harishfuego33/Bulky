@@ -2,10 +2,11 @@ using BulkyWeb.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
+
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer());
+var connectionString = builder.Configuration.GetConnectionString("DefaultString");// to get connection string
+builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseMySql(connectionString,new MySqlServerVersion(new Version(6,0,0))));
 
 var app = builder.Build();
     

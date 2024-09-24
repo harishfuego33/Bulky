@@ -10,6 +10,5 @@ namespace BulkyWeb.Models
         [Required]
         public string Name {set; get;}
         public int DisplayOrder { set; get; }
-
     }
 }
