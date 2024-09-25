@@ -1,0 +1,17 @@
+﻿@model Category
+@{
+    <form method="post" class="bordered p-3">
+        <h2 class="text-center text-black mb-3">Delete Category</h2>
+        <div class="d-flex bordered flex-column" style="gap:2rem">
+            @*<div asp-validation-summary="All"></div>*@
+            <div class="col w-100">
+                <input placeholder="Category Name" class="p-3 w-100" asp-for="Name" type="text" disabled>
+            </div>
+            <div class="col w-100">
+                <input placeholder="Display Order" class="p-3 w-100" asp-for="DisplayOrder" type="number" disabled>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger mt-2 ">Delete</button>
+        <a class="text-back ml-3 fw-bold" asp-controller="Category" asp-action="Index"> back to list</a>
+    </form>
+}
