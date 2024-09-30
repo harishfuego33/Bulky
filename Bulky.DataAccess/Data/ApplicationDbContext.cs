@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using BulkyBookWeb.Models;
-
-namespace BulkyBookWeb.Data
+﻿
+using Bulky.Models;
+using Microsoft.EntityFrameworkCore;
+namespace Bulky.DataAccess.Data
 {
     // DB schema
     // To create a DB schema we neet to get methord from Microsoft.EntityFrameworkCore  

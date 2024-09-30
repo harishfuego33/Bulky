@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
-namespace BulkyBookWeb.Models
+namespace Bulky.Models
 {
     // DB sechema
     public class Category
     {
         [Key]// constrants for database for eg: Primary Key
+        
         public int Id { set; get;}
         [Required]
         [DisplayName("Category Name")]

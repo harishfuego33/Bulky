@@ -1,4 +1,6 @@
-using BulkyWeb.Data;
+using BulkyBookWeb.Data;
+using BulkyBookWeb.Repository;
+using BulkyBookWeb.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("DefaultString");// to get connection string
 builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseMySql(connectionString,new MySqlServerVersion(new Version(6,0,0))));
+builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 
 var app = builder.Build();
     

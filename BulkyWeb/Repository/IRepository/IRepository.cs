@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace BulkyWeb.Repository.IRepository
+namespace BulkyBookWeb.Repository.IRepository
 {
     public interface IRepository<T> where T : class
     {
@@ -8,7 +8,7 @@ namespace BulkyWeb.Repository.IRepository
         T Get(Expression<Func<T, bool>> filter);
         void Add(T Entity);
         void Remove(T Entity);
-        void RemoveRang(IEnumerable<T> Entity);
+        void RemoveRange(IEnumerable<T> Entity);
 
 
     }
