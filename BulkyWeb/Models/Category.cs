@@ -3,10 +3,10 @@ using System.ComponentModel;
 
 namespace BulkyBookWeb.Models
 {
-    // DB sechema
+    // DB schema
     public class Category
     {
-        [Key]// constrants for database for eg: Primary Key
+        [Key]// constraints for database for eg: Primary Key
         public int Id { set; get;}
         [Required]
         [DisplayName("Category Name")]

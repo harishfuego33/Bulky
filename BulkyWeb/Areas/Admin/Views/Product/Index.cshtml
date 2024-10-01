@@ -1,0 +1,31 @@
+﻿@model List<Product>;
+@{
+    <main class="container">
+        <div>
+            <h2 class="text-center">Category List</h2>
+        </div>
+        <div class=book-grid>
+            @foreach(var item in Model)
+            {
+                <div class="book-card p-3 bordered">
+                    <div class="w-50 h-50"></div>
+                    <h3 class="">@item.Title</h3>
+                    <p>@item.Description</p>
+                    <p>Author: @item.Author</p>
+                    <p>Price: @item.Price</p>
+                    <button class="btn-primary bg-warning p-30"><i class="bi bi-cart-plus"></i> Add to Card</button>
+                </div>
+            }
+        </div>
+    
+    
+    </main>
+}
+<style>
+    .book-grid{
+       display:grid;
+        grid-template-columns:repeat(3,1fr);
+        grid-template-rows: repeat(3,1fr);
+       gap:20px;
+    }
+</style>
