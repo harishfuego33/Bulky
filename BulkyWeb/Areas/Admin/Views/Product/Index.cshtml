@@ -1,19 +1,36 @@
 ﻿@model List<Product>;
 @{
-    <main class="container">
-        <div>
-            <h2 class="text-center">Category List</h2>
+    <main class="">
+        <div class="row pt-5">
+            <div class="col-6">
+                <h2 class="align-content-center">Product List</h2>
+            </div>
+            <div class="col-6 text-end">
+                <a class="btn btn-success" asp-controller="Product" asp-action="Create">
+                    <i class="bi bi-plus-circle"></i>
+                    Create Product
+                </a>
+            </div>
         </div>
         <div class=book-grid>
             @foreach(var item in Model)
             {
-                <div class="book-card p-3 bordered">
-                    <div class="w-50 h-50"></div>
+                <div class="book-card p-3 border h-auto">
                     <h3 class="">@item.Title</h3>
                     <p>@item.Description</p>
                     <p>Author: @item.Author</p>
                     <p>Price: @item.Price</p>
-                    <button class="btn-primary bg-warning p-30"><i class="bi bi-cart-plus"></i> Add to Card</button>
+                    <div class="col">
+                        <div class="w-100 btn-group col-6" role="group">
+                            <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id" class="btn bg-warning mx-2">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+
+                            <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn bg-danger mx-2">
+                                <i class="bi bi-trash-fill"></i> Delete
+                            </a>
+                        </div>
+                    </div>
                 </div>
             }
         </div>
@@ -22,10 +39,15 @@
     </main>
 }
 <style>
-    .book-grid{
-       display:grid;
-        grid-template-columns:repeat(3,1fr);
-        grid-template-rows: repeat(3,1fr);
-       gap:20px;
+    .book-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+        grid-template-rows: repeat(2, auto); /* 2 rows, height adjusts to content */
+        gap: 20px; /* Space between items */
+        width: 100%; /* Full width container */
+    }
+
+    .book-card{
+        height:100%;
     }
 </style>

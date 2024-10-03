@@ -26,10 +26,10 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         public IActionResult Create(Category obj)
         {
             // custom server validation
-            if (obj.Name == obj.DisplayOrder.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder exactly match the Name.");
-            }
+            //if (obj.Name == obj.DisplayOrder.ToString())
+            //{
+            //    ModelState.AddModelError("name", "The DisplayOrder exactly match the Name.");
+            //}
             if (ModelState.IsValid)// validate the given constraint
             {
                 _UnitOfWork.Category.Add(obj); // this line insert into the db 
