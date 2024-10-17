@@ -3,6 +3,7 @@ using System;
 using BulkyBookWeb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BulkyBookWeb.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241017050635_AddCatrgoryIdAndImageultodb")]
+    partial class AddCatrgoryIdAndImageultodb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,7 +117,7 @@ namespace BulkyBookWeb.Migrations
                             CategoryId = 10,
                             Description = "Harry Potter and the Philosopher's Stone is a fantasy novel written by the British author J. K. Rowling. It is the first novel in the Harry Potter series and was Rowling's debut novel.",
                             ISBN = "ISBN0001",
-                            ImageUrl = "  ",
+                            ImageUrl = " ",
                             ListPrice = 20.0,
                             Price = 18.0,
                             Price100 = 15.0,
@@ -143,7 +145,7 @@ namespace BulkyBookWeb.Migrations
                             CategoryId = 3,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
                             ISBN = "RITO5555501",
-                            ImageUrl = "asdf ",
+                            ImageUrl = " ",
                             ListPrice = 55.0,
                             Price = 50.0,
                             Price100 = 35.0,
@@ -185,7 +187,7 @@ namespace BulkyBookWeb.Migrations
                             CategoryId = 1,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
                             ISBN = "FOT000000001",
-                            ImageUrl = "  ",
+                            ImageUrl = " ",
                             ListPrice = 25.0,
                             Price = 23.0,
                             Price100 = 20.0,

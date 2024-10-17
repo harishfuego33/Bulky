@@ -2,44 +2,48 @@
 @{
     <form method="post" class="bordered p-3">
         <h2 class="text-center text-black mb-3">Delete Product</h2>
-        <div class="d-flex bordered flex-column" style="gap:2rem">
-            @*<div asp-validation-summary="All"></div>*@
-            <div class="col w-100">
-                <input placeholder="Title" class="p-3 w-100 disabled" asp-for="Title" type="text" disabled>
-                <span asp-validation-for="Title" class="text-danger"></span>
+        <div class="row-10">
+            <div class="d-flex bordered flex-column" style="gap:2rem">
+                @*<div asp-validation-summary="All"></div>*@
+                <div class="col w-100">
+                    <input placeholder="Title" class="p-3 w-100 disabled" asp-for="Title" type="text" disabled>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="col w-100">
+                    <textarea placeholder="Description " class="p-3 w-100 disabled" asp-for="Description" disabled></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="col w-100">
+                    <input placeholder="ISBN" class="p-3 w-100 disabled" asp-for="ISBN" type="text" disabled>
+                    <span asp-validation-for="ISBN" class="text-danger"></span>
+                </div>
+                <div class="col w-100">
+                    <input placeholder="Author" class="p-3 w-100 disabled" asp-for="Author" type="text" disabled>
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+                <div class="col w-100">
+                    <input placeholder="ListPrice" class="p-3 w-100 disabled" asp-for="ListPrice" type="number" disabled>
+                    <span asp-validation-for="ListPrice" class="text-danger"></span>
+                </div>
+                <div class="col w-100">
+                    <input placeholder="Price" class="p-3 w-100 disabled" asp-for="Price" type="number" disabled>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="col w-100">
+                    <input placeholder="Price50" class="p-3 w-100 disabled " asp-for="Price50" type="number" disabled>
+                    <span asp-validation-for="Price50" class="text-danger"></span>
+                </div>
+                <div class="col w-100">
+                    <input placeholder="Price100" class="p-3 w-100 disabled" asp-for="Price100" type="number" disabled>
+                    <span asp-validation-for="Price100" class="text-danger"></span>
+                </div>
             </div>
-            <div class="col w-100">
-                <textarea placeholder="Description " class="p-3 w-100 disabled" asp-for="Description" disabled></textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="col w-100">
-                <input placeholder="ISBN" class="p-3 w-100 disabled" asp-for="ISBN" type="text" disabled>
-                <span asp-validation-for="ISBN" class="text-danger"></span>
-            </div>
-            <div class="col w-100">
-                <input placeholder="Author" class="p-3 w-100 disabled" asp-for="Author" type="text" disabled>
-                <span asp-validation-for="Author" class="text-danger"></span>
-            </div>
-            <div class="col w-100">
-                <input placeholder="ListPrice" class="p-3 w-100 disabled" asp-for="ListPrice" type="number" disabled>
-                <span asp-validation-for="ListPrice" class="text-danger"></span>
-            </div>
-            <div class="col w-100">
-                <input placeholder="Price" class="p-3 w-100 disabled" asp-for="Price" type="number" disabled>
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="col w-100">
-                <input placeholder="Price50" class="p-3 w-100 disabled " asp-for="Price50" type="number" disabled>
-                <span asp-validation-for="Price50" class="text-danger"></span>
-            </div>
-            <div class="col w-100">
-                <input placeholder="Price100" class="p-3 w-100 disabled" asp-for="Price100" type="number" disabled>
-                <span asp-validation-for="Price100" class="text-danger"></span>
-            </div>
-
-        </div>
         <button type="submit" class="btn btn-danger mt-2 ">Delete</button>
         <a class="text-back ml-3 fw-bold" asp-controller="Product" asp-action="Index" > back to list</a>
+        </div>
+        <div class="row-2">
+            <img src="sample" alt="sample">
+        </div>
     </form>
 }
 <style>

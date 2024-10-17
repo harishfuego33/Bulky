@@ -1,0 +1,95 @@
+﻿@model ProductVM;
+@{
+    <form method="post" class="bordered p-3" enctype="multipart/form-data">
+        <h2 class="text-center text-black mb-3">@(Model.Product.Id ==0?"Create":"Update") Product</h2>
+        <div class="d-flex bordered" style="gap:2rem">
+            <div class="col-9">
+            @*<div asp-validation-summary="All"></div>*@
+                <input asp-for="Product.Id" hidden/>
+                <input asp-for="Product.ImageUrl" hidden/>
+                <div class="col w-100 mb-2">
+                    <input placeholder="Title" class="p-3 w-100" asp-for="Product.Title" type="text">
+                    <span asp-validation-for="Product.Title" class="text-danger"></span>
+                </div>
+                <div class="col w-100 mb-2">
+                    <textarea placeholder="Description" class="p-3 w-100" asp-for="Product.Description"></textarea>
+                    <span asp-validation-for="Product.Description" class="text-danger"></span>
+                </div>
+                <div class="col w-100 mb-2">
+                    <input placeholder="ISBN" class="p-3 w-100" asp-for="Product.ISBN" type="text">
+                    <span asp-validation-for="Product.ISBN" class="text-danger"></span>
+                </div>
+                <div class="col w-100 mb-2">
+                    <input placeholder="Author" class="p-3 w-100" asp-for="Product.Author" type="text">
+                    <span asp-validation-for="Product.Author" class="text-danger"></span>
+                </div>
+                <div class="col w-100 mb-2">
+                    <input placeholder="ListPrice" class="p-3 w-100" asp-for="Product.ListPrice" type="number">
+                    <span asp-validation-for="Product.ListPrice" class="text-danger"></span>
+                </div>
+                <div class="col w-100 mb-2">
+                    <input placeholder="Price" class="p-3 w-100" asp-for="Product.Price" type="number">
+                    <span asp-validation-for="Product.Price" class="text-danger"></span>
+                </div>
+                <div class="col w-100 mb-2">
+                    <input placeholder="Price50" class="p-3 w-100" asp-for="Product.Price50" type="number">
+                    <span asp-validation-for="Product.Price50" class="text-danger"></span>
+                </div>
+                <div class="col w-100 mb-2">
+                    <input placeholder="Price100" class="p-3 w-100" asp-for="Product.Price100" type="number">
+                    <span asp-validation-for="Product.Price100" class="text-danger"></span>
+                </div>
+                <div class="col w-100 mb-2">
+                    <select id="DropList" class="w-100 form-select border" asp-for="@Model.Product.CategoryId" asp-items="@Model.CategoryListItem" required>
+                        <option selected disabled>----Select Category----</option>
+                    </select>
+                    <span asp-validation-for="@Model.Product.CategoryId" class="text-danger"></span>
+                </div>
+                <div class="col w-100 mb-2">
+                    <input type="file" name="file" class="p-3 w-100" asp-for="Product.ImageUrl" required accept="Image/*">
+                    <span asp-validation-for="Product.ImageUrl" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-3">
+                <img src="@Model.Product.ImageUrl" width="100">
+            </div>
+            
+        </div>
+        @if (Model.Product.Id == 0)
+        {
+            <button type="submit" class="btn btn-success mt-2 ">Create</button>
+        }
+        else
+        {
+            <button type="submit" class="btn btn-warning mt-2 ">Edit</button>
+
+        }
+        <a class="text-back ml-3 fw-bold" asp-controller="Product" asp-action="Index"> back to list</a>
+    </form>
+}
+@*Creating a partial script to validate on client side*@
+@section Scripts    {
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: [
+                // Core editing features
+                'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                // Your account includes a free trial of TinyMCE premium features
+                // Try the most popular premium features until Oct 31, 2024:
+                'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+            ],
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+        });
+    </script>
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
