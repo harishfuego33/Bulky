@@ -13,30 +13,18 @@
                 </a>
             </div>
         </div>
-        <div class=book-grid>
-            @foreach(var item in Model)
-            {
-                <div class="book-card p-3 border h-auto">
-                    <h3 class="">@item.Title</h3>
-                    <p class="Desc">
-                        @item.Description
-                    </p>
-                    <p>Author: @item.Author</p>
-                    <p>Price: @item.Price</p>
-                    <p>Category:@item.Category.Name</p>
-                    <div class="col">
-                        <div class="w-100 btn-group col-6" role="group">
-                            <a asp-controller="Product" asp-action="Upsert" asp-route-id="@item.Id" class="btn bg-warning mx-2">
-                                <i class="bi bi-pencil-square"></i> Edit
-                            </a>
-                            <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn bg-danger mx-2">
-                                <i class="bi bi-trash-fill"></i> Delete
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
+        <table id="tblData" class="table table-bordered table—striped">
+           <thead>
+               <tr>
+                    <th>Title</th>
+                    <th>ISBN</th>
+                    <th>Price</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th></th>
+               </tr>
+            </thead>
+        </table>
     
     
     </main>
@@ -58,7 +46,12 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
-        width:100px;
+        width:200px;
         
     }
 </style>
+
+@section Scripts{
+    <script src="~/js/product.js"></script>
+
+}
