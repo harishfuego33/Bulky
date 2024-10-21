@@ -11,11 +11,19 @@ namespace BulkyBookWeb.Repository
         public Repository(ApplicationDbContext db) {
             _db = db;
             dbSet = _db.Set<T>();
-        }
-        public T Get(Expression<Func<T, bool>> Filter)
+            _db.Products.Include(u => u.Category);
+        }                                                                                                               
+        public T Get(Expression<Func<T, bool>> Filter, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
             query=query.Where(Filter);
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var i in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(i);
+                }
+            }
             return query.FirstOrDefault();
         }
         public void Add(T Entity)
@@ -27,9 +35,17 @@ namespace BulkyBookWeb.Repository
             dbSet.Remove(Entity);
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
+            if (!string.IsNullOrEmpty(includeProperties))
+            {
+                foreach (var includeProp in includeProperties
+                    .Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
             return query.ToList();
         }
 

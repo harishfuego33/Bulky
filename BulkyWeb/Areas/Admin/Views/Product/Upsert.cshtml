@@ -46,7 +46,7 @@
                     <span asp-validation-for="@Model.Product.CategoryId" class="text-danger"></span>
                 </div>
                 <div class="col w-100 mb-2">
-                    <input type="file" name="file" class="p-3 w-100" asp-for="Product.ImageUrl" required accept="Image/*">
+                    <input type="file" name="file" class="p-3 w-100" asp-for="Product.ImageUrl"  accept="Image/*">
                     <span asp-validation-for="Product.ImageUrl" class="text-danger"></span>
                 </div>
             </div>

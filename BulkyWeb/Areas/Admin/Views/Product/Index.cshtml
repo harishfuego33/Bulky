@@ -23,13 +23,12 @@
                     </p>
                     <p>Author: @item.Author</p>
                     <p>Price: @item.Price</p>
-                    <p>Category: </p>
+                    <p>Category:@item.Category.Name</p>
                     <div class="col">
                         <div class="w-100 btn-group col-6" role="group">
                             <a asp-controller="Product" asp-action="Upsert" asp-route-id="@item.Id" class="btn bg-warning mx-2">
                                 <i class="bi bi-pencil-square"></i> Edit
                             </a>
-
                             <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn bg-danger mx-2">
                                 <i class="bi bi-trash-fill"></i> Delete
                             </a>

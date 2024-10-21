@@ -19,13 +19,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            List<Product> objProductList = _UnitOfWork.Product.GetAll().ToList();
-            IEnumerable<SelectListItem> CategoryList = _UnitOfWork.Category.GetAll().ToList()
-                .Select(i => new SelectListItem
-                {
-                    Value = i.Id.ToString(),
-                    Text = i.Name
-                }); ;
+            List<Product> objProductList = _UnitOfWork.Product.GetAll(includeProperty:"Category").ToList();
             return View(objProductList);
         }
         public IActionResult Upsert(int? id)
